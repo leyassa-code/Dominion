@@ -1,6 +1,3 @@
-app.get("/", (req, res) => {
-  res.status(200).send("Server is running");
-});
 import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
 import { serveStatic } from "./static";
@@ -9,6 +6,9 @@ import { createServer } from "http";
 const app = express();
 const httpServer = createServer(app);
 
+app.get("/", (req, res) => {
+  res.status(200).send("Server is running");
+});
 declare module "http" {
   interface IncomingMessage {
     rawBody: unknown;
